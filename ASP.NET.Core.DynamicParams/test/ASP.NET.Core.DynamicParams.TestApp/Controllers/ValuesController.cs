@@ -16,8 +16,22 @@ namespace ASP.NET.Core.DynamicParams.TestApp.Controllers
             return Ok(p);
         }
 
+        [HttpPost, DynamicParams(ParamDetectionMode.Implicit), Route("extractPersonImplicit")]
+        public IActionResult PostSingleObjectImplicit([FromBody] dynamic value)
+        {
+            Person p = value.User;
+            return Ok(p);
+        }
+
         [HttpPost, DynamicParams, Route("collection")]
         public IActionResult PostCollection([FromBody, ToDynamicList] List<dynamic> value)
+        {
+            Person p = value[0].User;
+            return Ok(p);
+        }
+
+        [HttpPost, DynamicParams(ParamDetectionMode.Implicit), Route("collectionImplicit")]
+        public IActionResult PostCollectionImplicit([FromBody] List<dynamic> value)
         {
             Person p = value[0].User;
             return Ok(p);

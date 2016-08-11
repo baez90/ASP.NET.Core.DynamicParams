@@ -4,11 +4,11 @@ using Newtonsoft.Json.Linq;
 
 namespace ASP.NET.Core.DynamicParams.Internals
 {
-    internal class JObjectDynamic : DynamicObject
+    internal class JDynamic : DynamicObject
     {
         private readonly JToken _jObject;
 
-        internal JObjectDynamic(JToken jObject)
+        internal JDynamic(JToken jObject)
         {
             if(jObject == null) throw new ArgumentException();
             _jObject = jObject;
@@ -23,7 +23,7 @@ namespace ASP.NET.Core.DynamicParams.Internals
             }
             try
             {
-                result = new JObjectDynamic(_jObject[indexes[0]]);
+                result = new JDynamic(_jObject[indexes[0]]);
                 return true;
             }
             catch (ArgumentException )
@@ -37,7 +37,7 @@ namespace ASP.NET.Core.DynamicParams.Internals
         {
             var innerToken = _jObject[binder.Name];
             var success = innerToken != null;
-            result = new JObjectDynamic(innerToken);
+            result = new JDynamic(innerToken);
             return success;
         }
 

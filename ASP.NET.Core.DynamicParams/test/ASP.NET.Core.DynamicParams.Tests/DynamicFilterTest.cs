@@ -45,9 +45,37 @@ namespace ASP.NET.Core.DynamicParams.Tests
         }
 
         [Fact]
+        public async Task TestExtractPersonWithImplicitParamDetection()
+        {
+            var response = await _client.PostAsync("/api/Values/extractPersonImplicit", new StringContent(_config["SingleUserJson"], Encoding.UTF8, "application/json"));
+
+            response.EnsureSuccessStatusCode();
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            var person = JsonConvert.DeserializeObject<Person>(responseString);
+
+            Assert.Equal(person.FirstName, "Ted");
+            Assert.Equal(person.LastName, "Tester");
+        }
+
+        [Fact]
         public async Task TestExtractUserFromCollection()
         {
             var response = await _client.PostAsync("/api/Values/collection", new StringContent(_config["UserCollectionJson"], Encoding.UTF8, "application/json"));
+
+            response.EnsureSuccessStatusCode();
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            var person = JsonConvert.DeserializeObject<Person>(responseString);
+
+            Assert.Equal(person.FirstName, "Ted");
+            Assert.Equal(person.LastName, "Tester");
+        }
+
+        [Fact]
+        public async Task TestExtractUserFromCollectionWithImplicitParamDetection()
+        {
+            var response = await _client.PostAsync("/api/Values/collectionImplicit", new StringContent(_config["UserCollectionJson"], Encoding.UTF8, "application/json"));
 
             response.EnsureSuccessStatusCode();
 
