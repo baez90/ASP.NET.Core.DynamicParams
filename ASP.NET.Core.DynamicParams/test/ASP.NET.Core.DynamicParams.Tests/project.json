@@ -26,5 +26,11 @@
     }
   },
 
-  "testRunner": "xunit"
+  "testRunner": "xunit",
+
+  "publishOptions": {
+    "include": [
+      "testresources.json"
+    ]
+  }
 }

@@ -1,0 +1,4 @@
+﻿{
+  "SingleUserJson": "{\r\n    \"User\": {\r\n        \"FirstName\": \"Ted\",\r\n        \"Lastname\": \"Tester\"\r\n    },\r\n    \"Title\": \"Prof.\"\r\n}",
+  "UserCollectionJson": "[\r\n    {\r\n        \"User\": {\r\n            \"FirstName\": \"Ted\",\r\n            \"Lastname\": \"Tester\"\r\n        },\r\n        \"Title\": \"Prof.\"\r\n    },\r\n    {\r\n        \"User\": {\r\n            \"FirstName\": \"Ted\",\r\n            \"Lastname\": \"Tester\"\r\n        },\r\n        \"Title\": \"Prof.\"\r\n    },\r\n    {\r\n        \"User\": {\r\n            \"FirstName\": \"Ted\",\r\n            \"Lastname\": \"Tester\"\r\n        },\r\n        \"Title\": \"Prof.\"\r\n    }\r\n]"
+}
